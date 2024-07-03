@@ -1,0 +1,15 @@
+syntax = "proto3";
+package pasans.pasans;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "pasans/x/pasans/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "pasans/x/pasans/Params";
+  option (gogoproto.equal) = true;
+
+  
+}
