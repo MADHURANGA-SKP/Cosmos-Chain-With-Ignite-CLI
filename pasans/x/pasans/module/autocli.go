@@ -17,6 +17,22 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "params",
 					Short:     "Shows the parameters of the module",
 				},
+				{
+					RpcMethod: "SystemInfo",
+					Use:       "show-system-info",
+					Short:     "show systemInfo",
+				},
+				{
+					RpcMethod: "StoredGameAll",
+					Use:       "list-stored-game",
+					Short:     "List all storedGame",
+				},
+				{
+					RpcMethod:      "StoredGame",
+					Use:            "show-stored-game [id]",
+					Short:          "Shows a storedGame",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "index"}},
+				},
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
@@ -27,6 +43,24 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				{
 					RpcMethod: "UpdateParams",
 					Skip:      true, // skipped because authority gated
+				},
+				{
+					RpcMethod:      "CreatePost",
+					Use:            "create-post [title] [body]",
+					Short:          "Send a createPost tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "title"}, {ProtoField: "body"}},
+				},
+				{
+					RpcMethod:      "CreateGame",
+					Use:            "create-game [black] [red]",
+					Short:          "Send a createGame tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "black"}, {ProtoField: "red"}},
+				},
+				{
+					RpcMethod:      "PlayMove",
+					Use:            "play-move [game-index] [from-x] [from-y] [to-x] [to-y]",
+					Short:          "Send a playMove tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "gameIndex"}, {ProtoField: "fromX"}, {ProtoField: "fromY"}, {ProtoField: "toX"}, {ProtoField: "toY"}},
 				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
