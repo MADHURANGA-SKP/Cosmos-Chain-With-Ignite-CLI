@@ -1,0 +1,9 @@
+syntax = "proto3";
+package pasans.pasans;
+
+option go_package = "pasans/x/pasans/types";
+
+message SystemInfo {
+  uint64 nextId = 1; 
+  
+}
